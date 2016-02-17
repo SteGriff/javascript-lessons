@@ -8,13 +8,10 @@ Ste Griffiths and Dom Bisset
 
 ## Overview
 
-We will use the book "JavaScript: The Good Parts" as a source and structure.
+We use the book "JavaScript: The Good Parts" as a source and structure. We can compress chapters 1 and 2 and then focus on 3 for this lesson.
 
-## This lesson
 
-We can compress chapters 1 and 2 and then focus on 3 for this lesson.
-
-## Chapter 1
+## Chapter 1 - Good Parts
 
 **Read highlighted notes**
 
@@ -34,7 +31,7 @@ P. 4
  > B. despite it's deficiencies, JS is really good
 
  
-## Chapter 2 (Grammar)
+## Chapter 2 - Grammar
 
  * Whitespace is optional in the same ways it is in C# but it's nice to include it for our sanity
  * Semicolons are optional in JavaScript but it's nice to include them for our sanity
@@ -123,7 +120,7 @@ Division by 0 creates Infinity, whose type is `number`. Anything above `1.797693
 	
 ### Strings
 
-Strings are 16 bit unicode. There is no character type, it would just be a string with length 1.
+Strings are 16 bit unicode. There is no character type, it would just be a string with length 1. Backslash is he escape character in JS strings.
 
 Quiz: are single quotes and double quotes interchangeable and exactly the same for denoting JS string literals?
 
@@ -139,5 +136,77 @@ There are no behavioural differences like there are in PHP.
 You can use arrays like you would expect, but they are not actually `Array` type. There is no array type in JS; arrays are implemented as `Object` with a different *prototype*. This will become clear later.
 
 
-## Chapter 3
+## Chapter 3 - Objects
 
+Read highlighted notes - entire intro to Chapter 3.
+
+The basic types in JS are:
+
+	number, string, boolean, null, and undefined
+	
+**Everything else** is an `object`. Arrays, functions, regular expressions, and objects are all objects.
+
+### Notation
+
+Object literal notation is dead easy and forms the basis of the familiar JSON subset.
+
+	var employee = {
+		"first-name" : "ste",
+		last_name : "griffiths"
+	}
+	
+In that example, `last_name` is a **valid JavaScript name** so it does not need quotes. `first-name` is *not* a valid JS name but we can still use it as a key by putting quotes around it.
+
+### Retrieval
+
+Quiz: If I wanted to get the `first-name` property of `employee`, how could I do that?
+
+When you retrieve property values, if the key is a valid JS name, you can use dot notation
+
+	> employee.last_name
+	'griffiths'
+
+But if it's not, you would have to use square brackets and quotes:
+
+	> employee["first-name"]
+	'ste'
+
+
+If the key is not found, it returns `undefined`, which is why you should never knowingly assign `undefined` as a property value:
+
+	> employee.age
+	undefined
+	
+
+You can use `||` to fill default values, and `&&` to guard against TypeErrors (type in examples from the book)
+
+You can assign a property value in an object whether the property exists or not, it will be set or updated:
+
+	> employee.age = 22
+	22
+	> employee.age
+	22
+	
+### Reference
+
+Objects are passed by reference, so when you assign one object to equal another, the assigned object now contains a pointer to the other, as with C#.
+
+(Type out a code example)
+
+### Delete
+
+I didn't know this! You can delete an object member with the `delete` keyword.
+
+		> delete employee.age
+		true
+		> employee
+		
+When we come on to prototypes, you'll see that this may allow the prototype's value to "shine through".
+
+### Lastly, an idea about globals
+
+To reduce the use of global objects, why not have a master global object which contains all the data you want in properties? This is kind of what Angular does for us with `$scope`.
+
+## Next time
+
+Next session, we get on to Functions and Prototypes, which explains a lot of the JS stuff that has puzzled us, and helps to reveal how JS ticks, as a language.
