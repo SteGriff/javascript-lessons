@@ -34,7 +34,7 @@ P. 4
 ## Chapter 2 - Grammar
 
  * Whitespace is optional in the same ways it is in C# but it's nice to include it for our sanity
- * Semicolons are optional in JavaScript but it's nice to include them for our sanity
+ * Semicolons are optional in JavaScript.  Include them anyway. Javascript tries to correct faulty programs by adding additional semicolons.  It can get it wrong and mask more serious errors. 
  
 ### Names
 
