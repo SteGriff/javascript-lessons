@@ -76,6 +76,10 @@ A 'prototype' is a template for objects to be made from. From MDN:
 
  > A prototype-based language, such as JavaScript, does not make the distinction between Class and Instance: it simply has objects. A prototype-based language has the notion of a prototypical object, an object used as a template from which to get the initial properties for a new object. Any object can specify its own properties, either when you create it or at run time. In addition, any object can be associated as the prototype for another object, allowing the second object to share the first object's properties.
 
+Everything has a secret link to the prototype that made it. The secret link is kept in `__proto__`.[1][]
+
+**Functions** have a named `prototype` property. It is the prototype of objects constructed *by that function*.
+
 Objects produced from an object literal (that is, objects that you haven't specifically given an inheritance relationship) have a link to `Object.prototype`.
 
 Function objects have a link to `Function.prototype`, which inherits from `Object.prototype`. This is the root of the Prototypal inheritance tree of JavaScript.
@@ -83,6 +87,9 @@ Function objects have a link to `Function.prototype`, which inherits from `Objec
 	Object.prototype
 	        \
 		  Function.prototype
+
+
+[1]: http://stackoverflow.com/a/9959771
 
 
 ### Augmenting a type
