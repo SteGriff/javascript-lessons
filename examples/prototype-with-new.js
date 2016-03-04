@@ -1,3 +1,4 @@
+//prototype-with-new.js
 //Create a Tweet type
 
 var Tweet = function(string){

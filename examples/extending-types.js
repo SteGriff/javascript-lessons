@@ -1,3 +1,4 @@
+//extending-types.js
 //Extending the basic types
 
 var positiveNumber = 3.1415;

@@ -1,4 +1,4 @@
-//closures.js
+//closures-and-prototypes.js
 // Making a closure
 // (A Function, with access to the
 //  context where it was created,
@@ -30,3 +30,19 @@ console.log(myTweet.status);
 //The accessor will get us the real status
 console.log("Try to get public status");
 console.log(myTweet.getStatus());
+
+/* Let's inspect prototypes of these things */
+
+//tweet is a constructor, so it has a named `prototype` property
+console.log("tweet.prototype:");
+console.log(tweet.prototype); // {}
+
+//myTweet is not a constructor.
+// You can't make children from it.
+// It doesn't have 'prototype'
+console.log("myTweet.prototype:");
+console.log(myTweet.prototype); // undefined
+
+//It's hidden proto link is __proto__
+console.log("myTweet.__proto__");
+console.log(myTweet.__proto__);

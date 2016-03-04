@@ -28,6 +28,8 @@ We can also assign a function into a variable or property:
 		return a + b;
 	}
 	
+Code example: [method.js](./examples/method.js)
+	
 
 ### Nesting functions
 
@@ -45,19 +47,22 @@ There are four ways a function can be invoked.
  1.	**Function invocation**  
 	This is the basic call to a function from global scope.  
 	The value of `this` will be the global object (a root object that contains all the global variables)
+	[function-invocation](./examples/function-invocation.js)
 	
  2.	**Method invocation**  
 	When the call involves a dot or indexes, then the function is being invoked as a method.  
 	The value of `this` will be the parent object.
+	[method-invocation](./examples/method-invocation.js)
 	
  3.	**Constructor invocation**
 	You can call a function as a constructor using the `new` keyword. We'll come onto this in a minute.
 	
  4.	**Apply invocation**
-	There is a way of calling a function by name using the `apply` method and we're going to ignore this too.
+	There is a way of calling a function by name using the `apply` method and we're going to limit the scope of the lesson by brushing this under the carpet for now.
 
 
 Hopefully you can see that the value of `this` isn't decided until the point when a function is called. It is a very late binding.
+
 
 ## Functions are objects
 
@@ -68,6 +73,37 @@ When we write an object literal, the braces block means "I'm going to give you a
 We can prove that a Function is an object by assigning it properties and methods just like an Object would have.
 
 [a-function-is-an-object.js](./examples/a-function-is-an-object.js)
+
+
+## Augmenting a type
+
+You can add a feature to a prototype, even the prototypes of the basic types. In this example, we add a function to the prototype of Number:
+
+[extending-types.js](./examples/extending-types.js)
+
+
+## Constructors
+
+JavaScript has a `new` keyword. This is a compromise to help classical object-oriented programmers feel comfortable.
+
+Functions that are intended to be invoked by the `new` keyword are called constructors. By convention, we capitalise the names of these functions.
+
+[prototype-with-new.js](./examples/prototype-with-new.js)
+
+If you call a constructor without the `new` keyword, there will be no warning, and it will not do what you expect, and it will mess up variables in the global scope.
+
+For that reason, you should avoid `new`. There is a better way! (We will use Object.create in a similar but clearer role).
+
+
+## Closures
+
+Closures let us hide information, making it private.
+
+Let's make our tweet example, but this time, the `status` property will be private, accessible only through the `getStatus()` getter.
+
+[closures.js](./examples/closures.js)
+
+(Read top of page 38)
 
 
 ## Prototypes
@@ -90,39 +126,5 @@ Function objects have a link to `Function.prototype`, which inherits from `Objec
 
 
 [1]: http://stackoverflow.com/a/9959771
-
-
-### Augmenting a type
-
-You can add a feature to a prototype, even the prototypes of the basic types. In this example, we add a function to the prototype of Number:
-
-[extending-types.js](./examples/extending-types.js)
-
-
-## Constructors
-
-JavaScript has a `new` keyword. This is a compromise to help classical object-oriented programmers feel comfortable.
-
-Functions that are intended to be invoked by the `new` keyword are called constructors. By convention, we capitalise the names of these functions.
-
-[prototype-with-new.js](./examples/prototype-with-new.js)
-
-If you call a constructor without the `new` keyword, there will be no warning, and it will not do what you expect, and it will mess up variables in the global scope.
-
-For that reason, you should avoid `new`. There is a better way!
-
-## Closures
-
-Closures let us hide information, making it private.
-
-Let's make our tweet example, but this time, the `status` property will be private, accessible only through the `getStatus()` getter.
-
-[closures.js](./examples/closures.js)
-
-(Read top of page 38)
-
-
-## Writing prototypally
-
 
 

@@ -1,4 +1,5 @@
-//A Function is an object
+//a-function-is-an-object.js
+// Showing how a Function is an object
 
 //Make a function
 var greet = function(name){

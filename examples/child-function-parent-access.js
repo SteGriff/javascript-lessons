@@ -1,3 +1,4 @@
+//child-function-parent-access.js
 //A child function can access parent variables
 
 var automobile = function()
